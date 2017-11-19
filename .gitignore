@@ -1,0 +1,8 @@
+*.elc
+.edbi-ds-history
+el-get/*
+.session
+elpa
+.DS_Store
+*.eld
+recentf
