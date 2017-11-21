@@ -54,6 +54,7 @@
 (el-get-bundle  color-theme-tomorrow)
 
 ;;;; 個人設定
+(require 'dired-conf)
 (require 'display-conf)
 (require 'operation-conf)
 
