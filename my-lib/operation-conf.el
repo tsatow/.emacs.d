@@ -4,11 +4,6 @@
 (when (eq system-type 'darwin)
   (setq ns-command-modifier (quote meta)))
 
-;;; 矩形選択のキーバインドを C-cb に設定
-(cua-mode t)
-(setq cua-enable-cua-keys nil) ;; cua-mode の不要なキーバインドは除去
-(global-set-key (kbd "\C-cb") 'cua-set-rectangle-mark)
-
 ;;; C-hをBackspaceに割り当て
 (define-key key-translation-map [?\C-h] [?\C-?])
 
