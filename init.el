@@ -5,7 +5,6 @@
 (package-initialize)
 
 ;; ロードパスの追加
-(add-to-list 'load-path "~/.emacs.d/theme")
 (add-to-list 'load-path "~/.emacs.d/my-lib")
 ;;;;;; El-Getのための設定
 ;; 参考資料
