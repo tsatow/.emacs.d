@@ -144,6 +144,12 @@
 ;; テキストを折り返す、折り返さないの設定
 (global-set-key (kbd "C-c t") 'toggle-truncate-lines)
 
+;; Emacs Mac Port 用設定
+;; ミニバッファで入力する際に自動的にASCIIにする
+(when (fboundp 'mac-auto-ascii-mode)
+  (mac-auto-ascii-mode 1))
+
+
 ;; elscreenを起動
 (elscreen-start)
 
