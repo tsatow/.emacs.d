@@ -10,9 +10,6 @@
 ;;; helpをC-?に割り当て
 (global-set-key (kbd "C-?") 'help-for-help) 
 
-;;; C-x o の other-window を C-o にバインド
-(define-key global-map (kbd "C-o") 'other-window)
-
 ;;; 括弧の対応をハイライト.
 (show-paren-mode t)
 (setq show-paren-style 'expression)
