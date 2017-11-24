@@ -28,6 +28,7 @@
 (el-get-bundle! powerline)
 (el-get-bundle! popwin)
 (el-get-bundle! fill-column-indicator)
+(el-get-bundle! multi-scratch)
 ;;; markdown
 (el-get-bundle! markdown-mode)
 ;;; company(code補完)
@@ -56,6 +57,7 @@
 ;;;; 個人設定
 (require 'dired-conf)
 (require 'display-conf)
+(require 'lisp-interaction-mode-conf)
 (require 'operation-conf)
 
 ;;;; 初期処理
