@@ -41,4 +41,8 @@
 (when (fboundp 'mac-auto-ascii-mode)
   (mac-auto-ascii-mode 1))
 
+;;; 質問をy/nで回答する
+(fset 'yes-or-no-p 'y-or-n-p)
+
+
 (provide 'operation-conf)
