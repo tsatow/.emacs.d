@@ -33,6 +33,9 @@
 ;;; タブ幅の設定。ただしタブか半角スペースかはプロジェクトに任せる。
 (setq-default tab-width 2 indent-tabs-mode t)
 
+;;; インデントにタブ文字を使用しない
+(setq-default indent-tabs-mode nil)
+
 ;;; テキストを折り返しの切り替え設定
 (global-set-key (kbd "C-c t") 'toggle-truncate-lines)
 
