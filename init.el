@@ -19,7 +19,7 @@
        "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
     (goto-char (point-max))
     (eval-print-last-sexp)))
-;;; config-packagename.elに各パッケージ毎の設定を書く
+;;; init-packagename.elに各パッケージ毎の設定を書く
 (setq el-get-user-package-directory (locate-user-emacs-file "init"))
 
 ;;;; packageのインストール
@@ -29,28 +29,35 @@
 (el-get-bundle! popwin)
 (el-get-bundle! fill-column-indicator)
 (el-get-bundle! multi-scratch)
+
 ;;; markdown
 (el-get-bundle! markdown-mode)
+
 ;;; company(code補完)
 (el-get-bundle! company)
-;;; flycheck
+
+;;; Flycheck
 (el-get-bundle! flycheck)
+
 ;;; Scala
 (el-get-bundle! scala-mode)
 (el-get-bundle! ensime)
 (el-get-bundle! sbt-mode)
+
 ;;; Haskell
-;;; makeでこけるので以下を参考に設定
-;;; https://github.com/nanasess/dot.emacs/blob/master/init.el
-(el-get-bundle haskell-mode
+(el-get-bundle! haskell/haskell-mode)
+(el-get-bundle! emacs-lsp/lsp-mode)
+(el-get-bundle! emacs-lsp/lsp-ui)
+(el-get-bundle! emacs-lsp/lsp-haskell)
+
+;;; Elm
+(el-get-bundle! elm-mode)
+
+;;; api blue print
+(el-get-bundle! apib-mode
   :type github
-  :pkgname "haskell/haskell-mode"
-  :build `(("make" ,(format "EMACS=%s" el-get-emacs) "check-emacs-version" "compile" "haskell-mode-autoloads.el"))
-  :post-init (progn
-	       (require 'haskell-mode-autoloads)
-	       (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
-	       (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)))
-(el-get-bundle! company-ghc)
+  :pkgname "w-vi/apib-mode")
+
 ;;; Theme
 (el-get-bundle  color-theme-tomorrow)
 

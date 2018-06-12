@@ -25,7 +25,8 @@
 
 ;;; 現在行に色をつける
 (global-hl-line-mode 1)
-(set-face-background 'hl-line "blue")
+;; VSCodeのtomorrow-night-blueテーマでの<div class="current-line">のスタイルから拝借
+(set-face-background 'hl-line "#00346e") 
 
 ;;; 時間を表示
 (display-time)
