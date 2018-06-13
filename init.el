@@ -40,7 +40,9 @@
 (el-get-bundle! flycheck)
 
 ;;; Scala
+(add-to-list 'exec-path "~/.sdkman/candidates/sbt/current/bin")
 (el-get-bundle! scala-mode)
+;; @see http://ensime.github.io//editors/emacs/cheat_sheet/
 (el-get-bundle! ensime)
 (el-get-bundle! sbt-mode)
 
