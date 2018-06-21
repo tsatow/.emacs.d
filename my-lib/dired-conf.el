@@ -4,7 +4,8 @@
 (add-hook 'dired-mode-hook 'dired-hide-details-mode)
 
 ;;; diredでは半角にする
-(add-hook 'dired-mode-hook (mac-auto-ascii-mode 1))
+(when (equal system-type 'darwin)
+  (add-hook 'dired-mode-hook (mac-auto-ascii-mode 1)))
 
 ;;; 詳細表示非表示に切り替え
 (define-key dired-mode-map (kbd "(") 'dired-hide-details-mode)
