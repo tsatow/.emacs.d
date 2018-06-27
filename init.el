@@ -46,14 +46,27 @@
 (el-get-bundle! ensime)
 (el-get-bundle! sbt-mode)
 
-;;; Haskell
-(el-get-bundle! haskell/haskell-mode)
+;;; LSP(Language Server Protocol)
 (el-get-bundle! emacs-lsp/lsp-mode)
 (el-get-bundle! emacs-lsp/lsp-ui)
+
+;;; Haskell
+(el-get-bundle! haskell/haskell-mode)
 (el-get-bundle! emacs-lsp/lsp-haskell)
 
 ;;; Elm
 (el-get-bundle! elm-mode)
+
+;;; Ruby
+(el-get-bundle! emacs-lsp/lsp-ruby)
+
+;;; Flow
+;; 公式ドキュメント(https://flow.org/en/docs/editors/emacs/)に従って、
+;; https://github.com/flowtype/flow-for-emacsを使用する。
+;; ファイル名がflow-for-emacs.elではなくflow.elなせいかel-get-bundleできないので、手動でcloneする。
+;; cd ~/.emacs.d/
+;; git clone https://github.com/flowtype/flow-for-emacs.git
+(load-file "~/.emacs.d/my-lib/flow-for-emacs/flow.el")
 
 ;;; api blue print
 (el-get-bundle! apib-mode
