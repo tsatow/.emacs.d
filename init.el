@@ -66,7 +66,7 @@
 ;; ファイル名がflow-for-emacs.elではなくflow.elなせいかel-get-bundleできないので、手動でcloneする。
 ;; cd ~/.emacs.d/
 ;; git clone https://github.com/flowtype/flow-for-emacs.git
-(load-file "~/.emacs.d/my-lib/flow-for-emacs/flow.el")
+(load-file "~/.emacs.d/my-lib/bin/flow-for-emacs/flow.el")
 
 ;;; api blue print
 (el-get-bundle! apib-mode
