@@ -1,10 +1,17 @@
 *.elc
 .edbi-ds-history
 el-get/*
+auto-save-list/*
+my-lib/bin/*
+eshell/*
 .session
+session.*
 elpa
 .DS_Store
 *.eld
-recentf
+recentf*
+network-security.data
 # 競合時に作成されるバックアップファイルは対象に含まない
 \#*\#
+auto-save-list/*
+eshell/*
