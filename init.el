@@ -34,6 +34,9 @@
 (el-get-bundle! projectile)
 (el-get-bundle! helm-projectile)
 
+;; magit
+(el-get-bundle! magit)
+
 ;;; markdown
 (el-get-bundle! markdown-mode)
 
