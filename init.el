@@ -30,6 +30,10 @@
 (el-get-bundle! fill-column-indicator)
 (el-get-bundle! multi-scratch)
 
+;; projectile
+(el-get-bundle! projectile)
+(el-get-bundle! helm-projectile)
+
 ;;; markdown
 (el-get-bundle! markdown-mode)
 
