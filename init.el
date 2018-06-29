@@ -23,6 +23,7 @@
 (setq el-get-user-package-directory (locate-user-emacs-file "init"))
 
 ;;;; packageのインストール
+(el-get-bundle! restart-emacs)
 (el-get-bundle! helm)
 (el-get-bundle! elscreen)
 (el-get-bundle! powerline)
@@ -66,14 +67,26 @@
 
 ;;; Ruby
 (el-get-bundle! emacs-lsp/lsp-ruby)
+(el-get-bundle! inf-ruby)
+;; for short messages on hover
+;; これはlsp-mode全体の設定になるかも
+(setq lsp-hover-text-function 'lsp--text-document-signature-help)
 
-;;; Flow
-;; 公式ドキュメント(https://flow.org/en/docs/editors/emacs/)に従って、
-;; https://github.com/flowtype/flow-for-emacsを使用する。
-;; ファイル名がflow-for-emacs.elではなくflow.elなせいかel-get-bundleできないので、手動でcloneする。
-;; cd ~/.emacs.d/
-;; git clone https://github.com/flowtype/flow-for-emacs.git
-(load-file "~/.emacs.d/my-lib/bin/flow-for-emacs/flow.el")
+;;; JavaScript
+(el-get-bundle! js2-mode)
+(el-get-bundle! rjsx-mode)
+
+;; flow
+;; el-getではエラーが出るため手動でcloneしている
+(add-to-list 'load-path "~/.emacs.d/my-lib/bin/lsp-javascript")
+;; またflow-binが存在しない場合は勝手にgithubからダウンロードされるが、以下のように頭のおかしい場所に置かれるので
+;; ~/.local/share/flow/0.74.0/home/tsatow/.local/share/flow/0.74.0/flow
+;; 以下でhアドオックに対応している。
+;; sudo npm i -g flow-bin@0.74.0
+(require 'lsp-javascript-flow)
+(add-hook 'js-mode-hook #'lsp-javascript-flow-enable)
+(add-hook 'js2-mode-hook #'lsp-javascript-flow-enable) ;; for js2-mode support
+(add-hook 'rjsx-mode #'lsp-javascript-flow-enable) ;; for rjsx-mode support
 
 ;;; api blue print
 (el-get-bundle! apib-mode
