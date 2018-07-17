@@ -30,6 +30,7 @@
 (el-get-bundle! popwin)
 (el-get-bundle! fill-column-indicator)
 (el-get-bundle! multi-scratch)
+(el-get-bundle! edit-server)
 
 ;; projectile
 (el-get-bundle! projectile)
@@ -62,6 +63,17 @@
 (el-get-bundle! haskell/haskell-mode)
 (el-get-bundle! emacs-lsp/lsp-haskell)
 
+;; Golang
+;; Goのパスを通す
+(add-to-list 'exec-path (expand-file-name "~/.goenv/shims"))
+;; go get で入れたツールのパスを通す
+(add-to-list 'exec-path (expand-file-name "~/go/bin/"))
+;;(el-get-bundle! go-mode) company-goとともに入るので不要
+(el-get-bundle! go-mode)
+(el-get-bundle! emacs-lsp/lsp-go)
+(el-get-bundle! go-eldoc)
+(el-get-bundle! company-go :url "https://raw.githubusercontent.com/nsf/gocode/master/emacs-company/company-go.el")
+
 ;;; Elm
 (el-get-bundle! elm-mode)
 
@@ -74,19 +86,16 @@
 
 ;;; JavaScript
 (el-get-bundle! js2-mode)
-(el-get-bundle! rjsx-mode)
+;(el-get-bundle! rjsx-mode)
+;; for vue-mode
+(el-get-bundle! mmm-mode)
+(el-get-bundle! AdamNiederer/vue-html-mode)
+(el-get-bundle! AdamNiederer/ssass-mode)
+(el-get-bundle! Fanael/edit-indirect)
+(el-get-bundle! AdamNiederer/vue-mode)
 
-;; flow
-;; el-getではエラーが出るため手動でcloneしている
-(add-to-list 'load-path "~/.emacs.d/my-lib/bin/lsp-javascript")
-;; またflow-binが存在しない場合は勝手にgithubからダウンロードされるが、以下のように頭のおかしい場所に置かれるので
-;; ~/.local/share/flow/0.74.0/home/tsatow/.local/share/flow/0.74.0/flow
-;; 以下でhアドオックに対応している。
-;; sudo npm i -g flow-bin@0.74.0
-(require 'lsp-javascript-flow)
-(add-hook 'js-mode-hook #'lsp-javascript-flow-enable)
-(add-hook 'js2-mode-hook #'lsp-javascript-flow-enable) ;; for js2-mode support
-(add-hook 'rjsx-mode #'lsp-javascript-flow-enable) ;; for rjsx-mode support
+;;; JSON
+(el-get-bundle! json-mode)
 
 ;;; api blue print
 (el-get-bundle! apib-mode

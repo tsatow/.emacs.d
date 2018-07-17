@@ -1,1 +1,1 @@
-(global-set-key (kbd "C-'") 'helm-projectile)
+(global-set-key (kbd "C-M-;") 'helm-projectile)

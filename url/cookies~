@@ -1,0 +1,25 @@
+;; Emacs-W3 HTTP cookies file
+;; Automatically generated file!!! DO NOT EDIT!!!
+
+(setq url-cookie-storage
+ '(("gist.github.com"
+  [url-cookie "gist_oauth_csrf" "" "火  7月 03 10:51:39 2018 GMT" "/" "gist.github.com" nil])
+ (".github.com"
+  [url-cookie "_octo" "GH1.1.104521363.1530615046" "Fri, 03 Jul 2020 10:50:46 -0000" "/" ".github.com" nil]))
+)
+(setq url-cookie-secure-storage
+ '(("github.com"
+  [url-cookie "user_session" "jXi1YQa148OwP1ppbJMhT5nWc1RgdR5xB_R1lV2PbF6pFHbD" "Tue, 17 Jul 2018 10:51:38 -0000" "/" "github.com" t]
+  [url-cookie "__Host-user_session_same_site" "jXi1YQa148OwP1ppbJMhT5nWc1RgdR5xB_R1lV2PbF6pFHbD" "Tue, 17 Jul 2018 10:51:38 -0000" "/" "github.com" t])
+ ("gist.github.com"
+  [url-cookie "gist_user_session" "gDGJude_ZqI7qvaQZswKpKT8HYY7A8rKuJd26xiv9kWeff_T" "Tue, 17 Jul 2018 10:51:45 -0000" "/" "gist.github.com" t]
+  [url-cookie "__Host-gist_user_session_same_site" "gDGJude_ZqI7qvaQZswKpKT8HYY7A8rKuJd26xiv9kWeff_T" "Tue, 17 Jul 2018 10:51:45 -0000" "/" "gist.github.com" t])
+ (".github.com"
+  [url-cookie "logged_in" "yes" "Sat, 03 Jul 2038 10:50:53 -0000" "/" ".github.com" t]
+  [url-cookie "dotcom_user" "tsatow" "Sat, 03 Jul 2038 10:50:53 -0000" "/" ".github.com" t]))
+)
+
+;; Local Variables:
+;; version-control: never
+;; no-byte-compile: t
+;; End:

@@ -11,4 +11,7 @@
 (define-key dired-mode-map (kbd "(") 'dired-hide-details-mode)
 (define-key dired-mode-map (kbd ")") 'dired-hide-details-mode)
 
+;; g(M-x revert-bufferと同じ)をいちいち押すの面倒なので自動的にやる
+(global-auto-revert-mode 1)
+
 (provide 'dired-conf)
