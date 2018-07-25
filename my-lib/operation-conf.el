@@ -1,4 +1,4 @@
-;;;; 動作に関する設定
+n;;;; 動作に関する設定
 
 ;;; Macの場合にMetaキーを⌘にする
 (when (eq system-type 'darwin)
@@ -17,8 +17,8 @@
                     :background nil :foreground nil
                     :underline "#fff00" :weight 'extra-bold)
 
-;;; 括弧を自動的に閉じる
-(electric-pair-mode 1)
+;;; 括弧を自動的に閉じ、、、ない！何故ならうざいから！
+(electric-pair-mode 0)
 
 ;;; バッファ末尾に余計な改行コードを防ぐための設定
 (setq next-line-add-newlines nil)

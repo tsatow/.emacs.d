@@ -31,6 +31,7 @@
 (el-get-bundle! fill-column-indicator)
 (el-get-bundle! multi-scratch)
 (el-get-bundle! edit-server)
+(el-get-bundle! elpa:multifiles)
 
 ;; projectile
 (el-get-bundle! projectile)
@@ -48,6 +49,9 @@
 ;;; Flycheck
 (el-get-bundle! flycheck)
 
+;;; EmacsLisp
+(el-get-bundle! lispxmp)
+
 ;;; Scala
 (add-to-list 'exec-path "~/.sdkman/candidates/sbt/current/bin")
 (el-get-bundle! scala-mode)
@@ -62,6 +66,10 @@
 ;;; Haskell
 (el-get-bundle! haskell/haskell-mode)
 (el-get-bundle! emacs-lsp/lsp-haskell)
+
+;;; CommonLisp
+(el-get-bundle! slime)
+(el-get-bundle! slime-company)
 
 ;; Golang
 ;; Goのパスを通す
@@ -120,7 +128,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (company))))
+ '(package-selected-packages (quote (multifiles company))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
