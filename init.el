@@ -32,6 +32,8 @@
 (el-get-bundle! multi-scratch)
 (el-get-bundle! edit-server)
 (el-get-bundle! elpa:multifiles)
+(el-get-bundle! open-junk-file)
+(el-get-bundle! multiple-cursors)
 
 ;; projectile
 (el-get-bundle! projectile)

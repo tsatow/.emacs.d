@@ -1,4 +1,4 @@
-n;;;; 動作に関する設定
+;;;; 動作に関する設定
 
 ;;; Macの場合にMetaキーを⌘にする
 (when (eq system-type 'darwin)
