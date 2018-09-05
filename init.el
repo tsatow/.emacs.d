@@ -34,6 +34,10 @@
 (el-get-bundle! elpa:multifiles)
 (el-get-bundle! open-junk-file)
 (el-get-bundle! multiple-cursors)
+(el-get-bundle! graphviz-dot-mode)
+(el-get-bundle! f) ;; racerのために入れた
+(el-get-bundle! pos-tip) ;; racerのために入れた
+(el-get-bundle! deferred) ;; racerのために入れた
 
 ;; projectile
 (el-get-bundle! projectile)
@@ -73,6 +77,14 @@
 (el-get-bundle! slime)
 (el-get-bundle! slime-company)
 
+;;; Rust
+(add-to-list 'exec-path (expand-file-name "~/.cargo/bin/"))
+(el-get-bundle! rust-mode)
+(el-get-bundle racer-rust/emacs-racer)
+(require 'racer)
+(el-get-bundle! flycheck-rust)
+(el-get-bundle! emacs-pe/company-racer)
+
 ;; Golang
 ;; Goのパスを通す
 (add-to-list 'exec-path (expand-file-name "~/.goenv/shims"))
@@ -95,8 +107,12 @@
 (setq lsp-hover-text-function 'lsp--text-document-signature-help)
 
 ;;; JavaScript
+(add-to-list 'exec-path (expand-file-name "~/.npm-global/bin/"))
 (el-get-bundle! js2-mode)
-;(el-get-bundle! rjsx-mode)
+(el-get-bundle! prettier-js)
+(el-get-bundle emacs-lsp/lsp-javascript :name lsp-javascript-flow)
+(require 'lsp-javascript-flow)
+(el-get-bundle! rjsx-mode)
 ;; for vue-mode
 (el-get-bundle! mmm-mode)
 (el-get-bundle! AdamNiederer/vue-html-mode)
