@@ -6,6 +6,7 @@
 
 ;;; C-hをBackspaceに割り当て
 (define-key key-translation-map [?\C-h] [?\C-?])
+(define-key key-translation-map (kbd "C-h") (kbd "<DEL>"))
 
 ;;; helpをC-?に割り当て
 (global-set-key (kbd "C-?") 'help-for-help) 
