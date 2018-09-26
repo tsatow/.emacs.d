@@ -15,6 +15,7 @@ image-dired/*
 
 # 競合時に作成されるバックアップファイルは対象に含まない
 \#*\#
+.\#*
 auto-save-list/*
 eshell/*
 *~
