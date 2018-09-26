@@ -46,6 +46,11 @@
 ;; magit
 (el-get-bundle! magit)
 
+;; neotreeの依存パッケージ
+(el-get-bundle! emacswiki:font-lock+)
+(el-get-bundle! all-the-icons)
+;; neotree
+(el-get-bundle! neotree)
 ;;; markdown
 (el-get-bundle! markdown-mode)
 
