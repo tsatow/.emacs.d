@@ -29,7 +29,17 @@
 
 ;;; window resize関数とその設定
 (require 'window-resizer)
-(global-set-key (kbd "C-c C-r") 'window-resizer)
+;; C-q をプリフィックスキー化
+(define-key global-map "\C-q" (make-sparse-keymap))
+;; quoted-insert は C-q C-q へ割り当て
+(global-set-key "\C-q\C-q" 'quoted-insert)
+;; window-resizer は C-q C-r (resize) で
+(global-set-key "\C-q\C-r" 'window-resizer)
+;; C-x o にはもううんざり
+(global-set-key "\C-ql" 'windmove-right)
+(global-set-key "\C-qh" 'windmove-left)
+(global-set-key "\C-qj" 'windmove-down)
+(global-set-key "\C-qk" 'windmove-up)
 
 ;;; UTF-8を基本とする
 (set-language-environment "UTF-8")
