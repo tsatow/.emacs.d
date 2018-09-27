@@ -29,6 +29,7 @@
 
 ;;; window resize関数とその設定
 (require 'window-resizer)
+(global-set-key (kbd "C-c C-r") 'window-resizer)
 
 ;;; UTF-8を基本とする
 (set-language-environment "UTF-8")
