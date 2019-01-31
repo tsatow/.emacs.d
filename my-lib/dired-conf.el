@@ -4,8 +4,10 @@
 (add-hook 'dired-mode-hook 'dired-hide-details-mode)
 
 ;;; diredでは半角にする
-(when (equal system-type 'darwin)
-  (add-hook 'dired-mode-hook (mac-auto-ascii-mode 1)))
+; mac-auto-ascii-modeが削除されてる?
+;(when (equal system-type 'darwin)
+;  (add-hook 'dired-mode-hook (when (functionp 'mac-auto-ascii-mode)  ;; ミニバッファに入力時、自動的に英語モード
+;       (mac-auto-ascii-mode 1))))
 
 ;;; 詳細表示非表示に切り替え
 (define-key dired-mode-map (kbd "(") 'dired-hide-details-mode)

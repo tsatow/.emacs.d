@@ -4,6 +4,11 @@
 ;; You may delete these explanatory comments.
 (package-initialize)
 
+;;; 環境変数の設定
+(setenv
+ "PATH"
+ (concat "/usr/local/opt/texinfo/bin" ":" (getenv "PATH")))
+
 ;;;; ロードパスの追加
 (add-to-list 'load-path "~/.emacs.d/my-lib")
 
@@ -79,51 +84,17 @@
 (el-get-bundle! emacs-lsp/lsp-haskell)
 
 ;;; CommonLisp
+;;; SLIMEでエラーが出るときは
+;;; https://blog.3qe.us/entry/2017/04/07/002237
+;;; が参考になるかもしれない。
 (el-get-bundle! slime)
 (el-get-bundle! slime-company)
 
-;;; Rust
-(add-to-list 'exec-path (expand-file-name "~/.cargo/bin/"))
-(el-get-bundle! rust-mode)
-(el-get-bundle racer-rust/emacs-racer)
-(require 'racer)
-(el-get-bundle! flycheck-rust)
-(el-get-bundle! emacs-pe/company-racer)
-
-;; Golang
-;; Goのパスを通す
-(add-to-list 'exec-path (expand-file-name "~/.goenv/shims"))
-;; go get で入れたツールのパスを通す
-(add-to-list 'exec-path (expand-file-name "~/go/bin/"))
-;;(el-get-bundle! go-mode) company-goとともに入るので不要
-(el-get-bundle! go-mode)
-(el-get-bundle! emacs-lsp/lsp-go)
-(el-get-bundle! go-eldoc)
-(el-get-bundle! company-go :url "https://raw.githubusercontent.com/nsf/gocode/master/emacs-company/company-go.el")
-
 ;;; Elm
-(el-get-bundle! elm-mode)
+;(el-get-bundle! elm-mode)
 
-;;; Ruby
-(el-get-bundle! emacs-lsp/lsp-ruby)
-(el-get-bundle! inf-ruby)
-;; for short messages on hover
-;; これはlsp-mode全体の設定になるかも
-(setq lsp-hover-text-function 'lsp--text-document-signature-help)
-
-;;; JavaScript
-(add-to-list 'exec-path (expand-file-name "~/.npm-global/bin/"))
-(el-get-bundle! js2-mode)
-(el-get-bundle! prettier-js)
-(el-get-bundle emacs-lsp/lsp-javascript :name lsp-javascript-flow)
-(require 'lsp-javascript-flow)
-(el-get-bundle! rjsx-mode)
-;; for vue-mode
+;;; TODO markdownのソースコードのシンタックスハイライト
 (el-get-bundle! mmm-mode)
-(el-get-bundle! AdamNiederer/vue-html-mode)
-(el-get-bundle! AdamNiederer/ssass-mode)
-(el-get-bundle! Fanael/edit-indirect)
-(el-get-bundle! AdamNiederer/vue-mode)
 
 ;;; JSON
 (el-get-bundle! json-mode)

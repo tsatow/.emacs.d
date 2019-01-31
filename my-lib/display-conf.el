@@ -13,6 +13,17 @@
 ;;; メニューバーを非表示
 (menu-bar-mode -1)
 
+;;; 設定例
+;;; https://qiita.com/takaxp/items/6ec37f9717e362bef35f
+(when (memq window-system '(mac ns))
+  (setq initial-frame-alist
+        (append
+         '((ns-transparent-titlebar . t) ;; タイトルバーを透過
+           (vertical-scroll-bars . nil) ;; スクロールバーを消す
+           ;(ns-appearance . dark) ;; 26.1 {light, dark}
+           (internal-border-width . 0))))) ;; 余白を消す
+(setq default-frame-alist initial-frame-alist)
+
 ;;; デフォルトで文字折り返しなし
 ;;; see https://www.glamenv-septzen.net/view/358
 (setq-default truncate-partial-width-windows t)
