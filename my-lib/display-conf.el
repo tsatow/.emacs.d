@@ -20,7 +20,7 @@
         (append
          '((ns-transparent-titlebar . t) ;; タイトルバーを透過
            (vertical-scroll-bars . nil) ;; スクロールバーを消す
-           ;(ns-appearance . dark) ;; 26.1 {light, dark}
+           (ns-appearance . dark) ;; 26.1 {light, dark}
            (internal-border-width . 0))))) ;; 余白を消す
 (setq default-frame-alist initial-frame-alist)
 
