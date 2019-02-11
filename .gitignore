@@ -12,6 +12,8 @@ elpa
 recentf*
 network-security.data
 image-dired/*
+.lsp-session-v1
+request/
 
 # 競合時に作成されるバックアップファイルは対象に含まない
 \#*\#
