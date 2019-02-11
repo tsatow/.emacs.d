@@ -34,4 +34,8 @@
   (dolist (char-regexp alist)
     (set-char-table-range composition-function-table (car char-regexp)
                           `([,(cdr char-regexp) 0 font-shape-gstring]))))
+
+(set-language-environment "UTF-8")
+(set-default-coding-systems 'utf-8)
+
 (provide 'font-conf)

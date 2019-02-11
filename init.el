@@ -2,7 +2,9 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
-(package-initialize)
+;; 依存ライブラリが重複すると警告が出るため、
+;; 警告にしたがいel-getが終わってからpackage-initializeするようにする
+;(package-initialize)
 
 ;;; 環境変数の設定
 (setenv
@@ -28,6 +30,7 @@
 (setq el-get-user-package-directory (locate-user-emacs-file "init"))
 
 ;;;; packageのインストール
+(el-get-bundle! request)
 (el-get-bundle! restart-emacs)
 (el-get-bundle! helm)
 (el-get-bundle! elscreen)
@@ -35,14 +38,10 @@
 (el-get-bundle! popwin)
 (el-get-bundle! fill-column-indicator)
 (el-get-bundle! multi-scratch)
-(el-get-bundle! edit-server)
 (el-get-bundle! elpa:multifiles)
 (el-get-bundle! open-junk-file)
 (el-get-bundle! multiple-cursors)
 (el-get-bundle! graphviz-dot-mode)
-(el-get-bundle! f) ;; racerのために入れた
-(el-get-bundle! pos-tip) ;; racerのために入れた
-(el-get-bundle! deferred) ;; racerのために入れた
 
 ;; projectile
 (el-get-bundle! projectile)
@@ -72,16 +71,33 @@
 (add-to-list 'exec-path "~/.sdkman/candidates/sbt/current/bin")
 (el-get-bundle! scala-mode)
 ;; @see http://ensime.github.io//editors/emacs/cheat_sheet/
-(el-get-bundle! ensime)
-(el-get-bundle! sbt-mode)
+;(el-get-bundle! ensime)
+;(el-get-bundle! sbt-mode)
 
 ;;; LSP(Language Server Protocol)
 (el-get-bundle! emacs-lsp/lsp-mode)
 (el-get-bundle! emacs-lsp/lsp-ui)
+;; for short messages on hover
+;; これはlsp-mode全体の設定になるかも
+(setq lsp-hover-text-function 'lsp--text-document-signature-help)
 
 ;;; Haskell
 (el-get-bundle! haskell/haskell-mode)
 (el-get-bundle! emacs-lsp/lsp-haskell)
+
+;;; Rust
+;; rustup component add rls rust-analysis rust-src clippy --toolchain nightly-2018-12-06
+(add-to-list 'exec-path (expand-file-name "~/.cargo/bin/"))
+;; rust-modeやracerの依存ライブラリ
+(el-get-bundle! pos-tip)
+(el-get-bundle! deferred)
+(el-get-bundle! rust-mode)
+(el-get-bundle racer-rust/emacs-racer)
+(require 'racer)
+(el-get-bundle! flycheck-rust)
+(el-get-bundle! emacs-pe/company-racer)
+;; 不安定すぎてまだRusticは使うには時期尚早
+;(el-get-bundle! elpa:rustic)
 
 ;;; CommonLisp
 ;;; SLIMEでエラーが出るときは
@@ -91,7 +107,19 @@
 (el-get-bundle! slime-company)
 
 ;;; Elm
-;(el-get-bundle! elm-mode)
+(el-get-bundle! reformatter
+  :type github
+  :pkgname "purcell/reformatter.el")
+(el-get-bundle! elm-mode)
+
+;;; JavaScript
+(add-to-list 'exec-path (expand-file-name "~/.npm-global/bin/"))
+(el-get-bundle! prettier-js)
+(el-get-bundle! typescript-mode)
+(el-get-bundle! js3-mode)
+(el-get-bundle! rjsx-mode)
+;(el-get-bundle! emacs-lsp/lsp-javascript :name lsp-javascript-typescript)
+;(require 'lsp-javascript-typescript)
 
 ;;; TODO markdownのソースコードのシンタックスハイライト
 (el-get-bundle! mmm-mode)
@@ -106,6 +134,10 @@
 
 ;;; Theme
 (el-get-bundle  color-theme-tomorrow)
+
+;; 依存ライブラリが重複すると警告が出るため、
+;; 警告にしたがいel-getが終わってからpackage-initializeするようにする
+(package-initialize)
 
 ;;;; 個人設定
 (require 'dired-conf)
@@ -122,7 +154,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (multifiles company))))
+ '(package-selected-packages (quote (lsp-mode racer quickrun multifiles company))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
